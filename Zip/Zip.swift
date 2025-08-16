@@ -28,7 +28,7 @@ public enum ZipError: Error {
     }
 }
 
-public enum ZipCompression: Int {
+public enum ZipCompression: Int, Sendable {
     case NoCompression
     case BestSpeed
     case DefaultCompression
