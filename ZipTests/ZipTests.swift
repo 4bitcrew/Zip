@@ -42,11 +42,7 @@ class ZipTests: XCTestCase {
     }
 
     private func temporaryDirectory() -> URL {
-        if #available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            return FileManager.default.temporaryDirectory
-        } else {
-            return URL(fileURLWithPath: NSTemporaryDirectory())
-        }
+        FileManager.default.temporaryDirectory
     }
 
     private func autoRemovingSandbox() throws -> URL {
