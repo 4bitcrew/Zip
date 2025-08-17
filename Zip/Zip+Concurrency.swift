@@ -27,8 +27,8 @@ extension Zip {
         destination: URL,
         overwrite: Bool,
         password: String? = nil,
-        progressHandler: ((Double) -> Void)? = nil,
-        fileOutputHandler: ((URL) -> Void)? = nil
+        progressHandler: (@Sendable (Double) -> Void)? = nil,
+        fileOutputHandler: (@Sendable (URL) -> Void)? = nil
     ) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
@@ -95,7 +95,7 @@ extension Zip {
         zipFilePath: URL,
         password: String? = nil,
         compression: ZipCompression = .DefaultCompression,
-        progressHandler: ((Double) -> Void)? = nil
+        progressHandler: (@Sendable (Double) -> Void)? = nil
     ) async throws {
         try await withCheckedThrowingContinuation { continuation in
             DispatchQueue.global(qos: .userInitiated).async {
